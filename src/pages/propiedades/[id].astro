@@ -52,8 +52,10 @@ let property = properties[id];
 
 <MainLayout>
   <section class='p-10 md:p-20'>
-    <h1 class='text-5xl font-semibold'>{property.name}</h1>
-    <p class='my-10 text-lg'>{property.description}</p>
-    <img src={property.image} class='w-3/4 mx-auto' />
+    <h1 class='text-5xl font-semibold'>{property.name ? property.name : ''}</h1>
+    <p class='my-10 text-lg'>
+      {property.description ? property.description : ''}
+    </p>
+    <img src={property.image ? property.image : ''} class='w-3/4 mx-auto' />
   </section>
 </MainLayout>
