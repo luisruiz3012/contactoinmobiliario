@@ -1,0 +1,23 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Conctacto Inmobiliario</title>
+    <link
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+    />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+    <script src='../../node_modules/flowbite/dist/flowbite.min.js'></script>
+  </body>
+</html>

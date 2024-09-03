@@ -1,0 +1,173 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import PropertyCard from '../components/PropertyCard.astro';
+import PropertyModal from '../components/PropertyModal.astro';
+
+const properties = [
+  {
+    name: 'Vendo linda casa en Zona 15',
+    image: '/public/img/zona-15.jpg',
+    department: 'Ciudad de Guatemala',
+    type: 'Venta',
+    link: '/propiedades/0',
+    price: 2000.0,
+  },
+  {
+    name: 'Casa en Olmeca',
+    image: '/public/img/olmeca.jpg',
+    department: 'Carretera a El Salvador',
+    type: 'Renta',
+    link: '/propiedades/1',
+    price: 2000.0,
+  },
+  {
+    name: 'Casa en Santiago',
+    image: '/public/img/santiago.jpg',
+    department: 'Ciudad de Guatemala',
+    type: 'Venta',
+    link: '/propiedades/2',
+    price: 2000.0,
+  },
+];
+---
+
+<MainLayout>
+  <Hero />
+  <section class='p-10 md:p-20' id='nosotros'>
+    <h3 class='text-5xl font-semibold mb-10'>Sobre nosotros</h3>
+    <p class='text-pretty md:text-justify text-lg'>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, fugiat
+      accusantium tenetur alias quisquam totam veniam officia veritatis sunt
+      distinctio quas consectetur illo odit cumque minima quaerat deserunt cum
+      nemo reprehenderit soluta libero mollitia? Laborum architecto, harum error
+      eius voluptates totam veritatis, temporibus facere hic non modi similique
+      explicabo, porro eos nostrum impedit. Architecto doloremque quam esse
+      dolorum perferendis placeat modi in ab nam consequatur facere recusandae
+      veritatis corrupti velit suscipit et aliquid laboriosam nesciunt,
+      exercitationem maiores cum nulla illum! Qui assumenda aspernatur quod
+      provident impedit ex culpa consequatur tempora nam, repellendus laudantium
+      velit. Alias, tempora nam! Facilis et repudiandae, eum id provident eius
+      mollitia minus ad eaque quasi, nemo eligendi delectus illum pariatur
+      voluptatem. Excepturi, dicta? Ea facere consequatur similique eaque sint
+      alias quaerat, provident temporibus soluta, accusantium possimus dolor
+      praesentium dolorem. Pariatur, officiis delectus. Veniam nobis vel
+      delectus, quam ex odit consequatur quae nihil, dignissimos odio pariatur
+      fugit aspernatur officiis architecto fuga beatae maxime id sequi sint quas
+      possimus reprehenderit! Tempora assumenda labore illum similique nisi
+      blanditiis molestiae sapiente nobis harum et laborum veritatis dicta
+      laboriosam numquam eum officiis nihil optio, nam non veniam expedita
+      natus? Quae dolorum reprehenderit quaerat voluptatem id enim vero totam
+      eaque? Neque, id.
+    </p>
+  </section>
+
+  <hr class='w-5/6 mx-auto shadow-md border' />
+
+  <section class='p-10 md:p-20' id='propiedades'>
+    <h3 class='text-5xl font-semibold mb-10'>Propiedades disponibles</h3>
+
+    <div class='py-5 flex items-center justify-between gap-4 flex-wrap'>
+      {
+        properties.map((property) => (
+          <div>
+            <PropertyCard property={property} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <hr class='w-5/6 mx-auto shadow-md border' />
+
+  <section class='bg-white dark:bg-gray-900' id='contactanos'>
+    <div class='py-8 lg:py-16 px-4 mx-auto max-w-screen-md'>
+      <h2
+        class='mb-4 text-5xl tracking-tight font-bold text-center text-gray-900 dark:text-white'
+      >
+        Contactanos
+      </h2>
+      <p
+        class='mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl'
+      >
+        ¿Tienes alguna consulta sobre alguna de nuestras propiedades o buscas
+        agendar una cita? Envianos un mensaje y con gusto te contactaremos
+      </p>
+      <form
+        action='https://formsubmit.co/contactoinmobiliarioagencia@gmail.com'
+        method='POST'
+        class='space-y-8'
+      >
+        <input type='hidden' name='_subject' value='Nueva consulta!' />
+        <input type='hidden' name='_captcha' value='false' />
+        <input type='hidden' name='_next' value='/' />
+        <div>
+          <label
+            for='email'
+            class='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
+            >Correo electronico</label
+          >
+          <input
+            type='email'
+            id='email'
+            name='correo'
+            class='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light'
+            placeholder='correo@ejemplo.com'
+            required
+          />
+        </div>
+        <div>
+          <label
+            for='nombre'
+            class='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
+            >Nombre</label
+          >
+          <input
+            type='text'
+            id='nombre'
+            name='nombre'
+            class='block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light'
+            placeholder='Nombre y apellido'
+            required
+          />
+        </div>
+        <div class='sm:col-span-2'>
+          <label
+            for='message'
+            class='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400'
+            >Mensaje</label
+          >
+          <textarea
+            id='message'
+            name='consulta'
+            rows='6'
+            class='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
+            placeholder='Escribe tu consulta'></textarea>
+        </div>
+        <button
+          type='submit'
+          class='py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-black sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
+          >Enviar mensaje</button
+        >
+      </form>
+
+      <div class='mt-20 flex gap-10 items-center justify-center flex-wrap'>
+        <span class='flex items-center gap-2'
+          ><i class='fa fa-phone' style='font-size:24px'></i> +502 5081 1212</span
+        >
+        <span class='flex items-center gap-2 text-sm'
+          ><i class='fa fa-envelope' style='font-size:24px'></i> contactoinmobiliarioagencia@gmail.com</span
+        >
+        <span class='flex items-center gap-2'
+          ><i class='fa fa-facebook' style='font-size:24px'></i> Contact Inmobiliario</span
+        >
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style is:global>
+  * {
+    scroll-behavior: smooth;
+  }
+</style>

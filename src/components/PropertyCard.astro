@@ -1,0 +1,23 @@
+---
+const { property } = Astro.props;
+const typeStyle = `text-xs ${property.type === 'Venta' ? 'bg-red-600' : 'bg-green-600'} rounded-full text-white text-center w-12 px-1 py-1`;
+---
+
+<div
+  class='w-96 min-h-64 border border-gray-300 rounded-md hover:shadow-sm transition-all ease-in-out hover:scale-105'
+>
+  <a href={property.link}>
+    <img src={property.image} class='w-full h-52 md:h-64' />
+    <div class='p-4 h-full w-full'>
+      <h5 class='font-semibold text-xl'>{property.name}</h5>
+      <span class='my-4'>{property.department}</span>
+      <div class='mt-2 h-full w-full'>
+        <div class={typeStyle}>
+          {property.type}
+        </div>
+
+        <span class='text-md font-semibold'>Precio: $ {property.price}</span>
+      </div>
+    </div>
+  </a>
+</div>
