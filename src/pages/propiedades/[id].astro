@@ -12,8 +12,6 @@ export function getStaticPaths() {
   ];
 }
 
-const { id } = Astro.params;
-
 const properties = [
   {
     name: 'Vendo linda casa en Zona 15',
@@ -47,6 +45,7 @@ const properties = [
   },
 ];
 
+const { id } = Astro.params;
 let property = properties[id];
 ---
 
