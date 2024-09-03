@@ -45,26 +45,15 @@ const properties = [
   },
 ];
 
-let property = {
-  name: '',
-  image: '',
-  department: '',
-  type: 'Venta',
-  description: '',
-  link: '',
-  price: 0,
-};
-
 const { id } = Astro.params;
-property = properties[id];
 ---
 
 <MainLayout>
   <section class='p-10 md:p-20'>
-    <h1 class='text-5xl font-semibold'>{property.name ? property.name : ''}</h1>
+    <h1 class='text-5xl font-semibold'>{properties[id].name}</h1>
     <p class='my-10 text-lg'>
-      {property.description ? property.description : ''}
+      {properties[id].description}
     </p>
-    <img src={property.image ? property.image : ''} class='w-3/4 mx-auto' />
+    <img src={properties[id].image} class='w-3/4 mx-auto' />
   </section>
 </MainLayout>
